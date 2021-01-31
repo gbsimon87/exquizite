@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+import initialState from "./config/data";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
+import Game from "./pages/Game";
+
+import "./App.css";
+
+export default function App() {
+  const [quizzes, setQuizzes] = useState(initialState.quizzes);
+  const [liveQuiz, setLiveQuiz] = useState([]);
+  console.log(quizzes);
+
+  useEffect(() => {
+    console.log("app mounted");
+    console.log("liveQuiz", liveQuiz);
+  }, [liveQuiz]);
+
+  const setCurrentQuiz = (quizId) => {
+    quizzes.forEach((currentQuiz, index) => {
+      if (currentQuiz.id === quizId) {
+        console.log("quizzes[index]", quizzes[index]);
+        setLiveQuiz([quizzes[index]]);
+        console.log("liveQuiz", liveQuiz);
+      }
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App container">
+        <Switch>
+          <Route path="/create">
+            <Create />
+          </Route>
+          <Route path={`/game/:quizId`}>
+            <Game setCurrentQuiz={setCurrentQuiz} data={liveQuiz} />
+          </Route>
+          <Route path="/">
+            <Home quizzes={quizzes} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-export default App;
