@@ -1,36 +1,26 @@
 import React from "react";
 import { Accordion, Button, Card, Form } from "react-bootstrap";
 
-const QuestionCard = () => {
+const AccordionCard = () => {
   return (
     <Accordion defaultActiveKey="0">
       <Card>
         <Card.Header>
           <Accordion.Toggle as={Button} variant="link" eventKey="0">
-            Question
+            Card 1
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
           <Card.Body>
-            <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
-              <Form.Control type="text" />
-            </Form.Group>
-            <Form.Group controlId="correct">
-              <Form.Label>Correct answer</Form.Label>
-              <Form.Control type="text" />
-            </Form.Group>
             <Form.Group controlId="question">
-              <Form.Label>Other possible answers</Form.Label>
+              <Form.Label>Question</Form.Label>
               <Form.Control type="text" />
             </Form.Group>
-            <Form.Group controlId="question">
+            <Form.Group controlId="answers" className="question__answers">
+              <Form.Label>Answers</Form.Label>
               <Form.Control type="text" />
-            </Form.Group>
-            <Form.Group controlId="question">
               <Form.Control type="text" />
-            </Form.Group>
-            <Form.Group controlId="question">
+              <Form.Control type="text" />
               <Form.Control type="text" />
             </Form.Group>
           </Card.Body>
@@ -40,4 +30,4 @@ const QuestionCard = () => {
   );
 };
 
-export default QuestionCard;
+export default AccordionCard;

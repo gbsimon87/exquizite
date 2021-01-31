@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import QuestionCard from "../components/Cards/QuestionCard";
+import AccordionCard from "../components/Cards/AccordionCard";
 import Header from "../components/Header";
 
 const Create = () => {
@@ -20,16 +20,14 @@ const Create = () => {
             <Form.Label>Name</Form.Label>
             <Form.Control type="text" />
           </Form.Group>
-          <QuestionCard />
-          <QuestionCard />
-          <QuestionCard />
+          <AccordionCard />
         </Form>
       </section>
       <section className="page__create__select_action">
-        <Button variant="secondary">Add another question</Button>
-        <Button onClick={handleGoHome} variant="primary">
+        <Button onClick={handleGoHome} variant="secondary">
           Finish
         </Button>
+        <Button variant="primary">Add another card</Button>
       </section>
     </div>
   );

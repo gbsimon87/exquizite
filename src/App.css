@@ -1,3 +1,9 @@
+body {
+  background: orange;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .App {
   height: 100vh;
   padding-top: 1rem;
@@ -106,5 +112,4 @@
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  border-radius: 50%;
 }
