@@ -3,7 +3,7 @@ import { Accordion, Button, Card, Form } from "react-bootstrap";
 
 const AccordionCard = () => {
   return (
-    <Accordion defaultActiveKey="0">
+    <Accordion defaultActiveKey="0" className="accordion__card">
       <Card>
         <Card.Header>
           <Accordion.Toggle as={Button} variant="link" eventKey="0">

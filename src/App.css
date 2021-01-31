@@ -1,14 +1,6 @@
 body {
-  background: orange;
   height: 100vh;
-  overflow: hidden;
-}
-
-.App {
-  height: 100vh;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 /* PAGE - HOME */
@@ -29,37 +21,25 @@ body {
 .page-game {
   position: relative;
   height: 100%;
-  /* background: orange; */
   overflow: hidden;
-}
-
-.page-game .game__area {
-  /* background: pink; */
-  min-height: 75%;
 }
 
 .page-game .card.game__area__multiple__choice {
   background: lightblue;
-  height: 75%;
+  min-height: 30rem;
 }
 
 .page-game .card.game__area__multiple__choice > .card-body {
   display: flex;
   flex: auto;
   flex-flow: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .game__area__select_answer__section {
   width: 100%;
   position: absolute;
   bottom: 0;
-}
-
-.page-game .game__area__select__answer__button__button {
-  display: flex;
-  justify-content: space-evenly;
-  height: 10vh;
 }
 
 .page-game .btn-group.game__area__select__answer > button {
@@ -85,7 +65,17 @@ body {
 .page-create .create__quiz__area {
   height: 75vh;
   overflow: scroll;
+  margin-bottom: 1rem;
+}
+.page-create .accordion__card {
   margin-bottom: 2rem;
+}
+.page-create .accordion__card .card-header {
+  padding: 0;
+}
+.page-create .accordion__card .card-header > button {
+  padding: 1rem;
+  width: 100%;
 }
 
 .page-create .page__create__select_action {
@@ -98,18 +88,22 @@ body {
   padding: 1rem;
 }
 
+.page-create .question__answers > input[type="text"] {
+  margin-bottom: 1rem;
+}
+
 .page-create .card__question button {
   margin-top: 1rem;
 }
 
 /* HEADER */
 .header {
-  margin-bottom: 2rem;
+  margin: 1rem 0;
 }
 
 /* BUTTONS */
 .floating-action-button {
-  position: absolute;
+  position: fixed;
   bottom: 1rem;
   right: 1rem;
 }

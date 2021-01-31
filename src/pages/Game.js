@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { Button, ButtonGroup, Card, Col, Row } from "react-bootstrap";
+import { Button, ButtonGroup, Card } from "react-bootstrap";
 
 import Header from "../components/Header";
 
 const Game = ({ data = [], setCurrentQuiz }) => {
   let { quizId } = useParams();
+  let history = useHistory();
   const [currentlyShowing, setCurrentlyShowing] = useState(0);
 
   useEffect(() => {
     setCurrentQuiz(quizId);
     console.log("currentlyShowing:", currentlyShowing);
-  }, [quizId]);
+  }, [quizId, currentlyShowing]);
 
   const handleUserSelection = (event) => {
     console.log(event);
@@ -20,7 +21,8 @@ const Game = ({ data = [], setCurrentQuiz }) => {
     console.log("quizLength:", quizLength);
     console.log("currentlyShowing:", currentlyShowing);
     if (quizLength - 1 === currentlyShowing) {
-      return alert("game is over");
+      alert("game is over");
+      history.push("/");
     }
     setCurrentlyShowing(currentlyShowing + 1);
   };
@@ -40,40 +42,38 @@ const Game = ({ data = [], setCurrentQuiz }) => {
             {data[0].questions[currentlyShowing].answers.map((answer) => (
               <Card.Text>{answer.description}</Card.Text>
             ))}
+            <ButtonGroup
+              className="game__area__select__answer__button__button"
+              aria-label="select answer"
+            >
+              <Button
+                onClick={(event) => handleUserSelection(event)}
+                variant="light"
+              >
+                A
+              </Button>
+              <Button
+                onClick={(event) => handleUserSelection(event)}
+                variant="light"
+              >
+                B
+              </Button>
+              <Button
+                onClick={(event) => handleUserSelection(event)}
+                variant="light"
+              >
+                C
+              </Button>
+              <Button
+                onClick={(event) => handleUserSelection(event)}
+                variant="light"
+              >
+                D
+              </Button>
+            </ButtonGroup>
           </Card.Body>
         </Card>
       )}
-      <section className="game__area__select_answer__section">
-        <ButtonGroup
-          className="game__area__select__answer__button__button"
-          aria-label="select answer"
-        >
-          <Button
-            onClick={(event) => handleUserSelection(event)}
-            variant="light"
-          >
-            A
-          </Button>
-          <Button
-            onClick={(event) => handleUserSelection(event)}
-            variant="light"
-          >
-            B
-          </Button>
-          <Button
-            onClick={(event) => handleUserSelection(event)}
-            variant="light"
-          >
-            C
-          </Button>
-          <Button
-            onClick={(event) => handleUserSelection(event)}
-            variant="light"
-          >
-            D
-          </Button>
-        </ButtonGroup>
-      </section>
     </div>
   );
 };

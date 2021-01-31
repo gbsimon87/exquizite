@@ -122,6 +122,28 @@ const initialState = {
       ],
     },
   ],
+  newQuiz: {
+    name: "",
+    cards: [
+      {
+        question: "Type your first question",
+        answers: [
+          {
+            content: "",
+          },
+          {
+            content: "",
+          },
+          {
+            content: "",
+          },
+          {
+            content: "",
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export default initialState;
