@@ -1,11 +1,10 @@
 body {
   background: orange;
-  height: 100vh;
+  height: calc(100vh - 2rem);
   overflow: hidden;
 }
 
 .App {
-  height: 100vh;
   padding-top: 1rem;
   padding-bottom: 1rem;
   overflow: hidden;
